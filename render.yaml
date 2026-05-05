@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: fileid-management-bot
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    envVars:
+      - key: FILEID_BOT_TOKEN
+        sync: false          # Set manually on Render dashboard
+      - key: ADMIN_IDS
+        sync: false          # Comma-separated Telegram user IDs
+      - key: PORT
+        value: "8080"
